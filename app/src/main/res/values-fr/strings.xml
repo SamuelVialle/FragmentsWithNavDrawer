@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fragment &amp; Callback with a NavDrawer</string>
+    <string name="navigation_drawer_open">Ouverture du menu latéral</string>
+    <string name="navigation_drawer_close">Fermeture du menu latéral</string>
+</resources>
