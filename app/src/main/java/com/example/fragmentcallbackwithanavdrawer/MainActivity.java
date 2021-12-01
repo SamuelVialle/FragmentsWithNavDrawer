@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity
 
         // Appel de la méthode d'initialisation de l'UI
         initUI();
-        // Ajout du support pour la gestio nde la Toolbar
+        // Ajout du support pour la gestion de la Toolbar
         setSupportActionBar(toolbar);
 
         // Ajout de la gestion des options d'accessibilité
@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity
 
         // Ajout d'un listener sur le bouton hamburger
         drawer_layout.addDrawerListener(toggle);
-        // Synchro le bouton hamburger et le menu
+        // Synchro entre le bouton hamburger et le menu
         toggle.syncState();
 
-        //
+        // Gestion du clic sur un des item du menu
         navigationView.setNavigationItemSelectedListener(this);
 
         if(savedInstanceState == null){
@@ -99,11 +99,6 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.add(R.id.fragment_container, fragment_01);
         // Finalisation de la création du fragment
         fragmentTransaction.commit();
-
-//        getSupportFragmentManager().
-//                beginTransaction().
-//                add(R.id.fragment_container, new Fragment_01()).
-//                commit();
     }
 
 
