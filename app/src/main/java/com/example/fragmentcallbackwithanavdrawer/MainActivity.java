@@ -16,28 +16,20 @@ import android.widget.Toast;
 import com.example.fragmentcallbackwithanavdrawer.utils.Gol;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     /**
-     * Variables globales
+     * 1 Variables globales
      **/
-    Toolbar toolbar;
-    DrawerLayout drawer_layout;
-
-    // La gestion des fragments
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-
-    // Gestion de la NavigationView
-    private NavigationView navigationView;
+    private Toolbar toolbar; // La toolbar pour afficher le menu hamburger
+    private DrawerLayout drawer_layout; // L'obj NavigationDrawer
+    private NavigationView navigationView; // Gestion de la NavigationView pour traiter le drawer en s'appuyant sur l'extends
 
     // Variable emplacement
-    private static final String emplacement
-            = MainActivity.class.getSimpleName();
+    private static final String emplacement = MainActivity.class.getSimpleName();
 
     /**
-     * Faire le lien entre les widgets et le design
+     * 2 Faire le lien entre les widgets et le design
      **/
     public void initUI() {
         toolbar = findViewById(R.id.toolbar);
@@ -80,16 +72,10 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
+    // Ajout des Fragments
     private void addFragment() {
+        FragmentManager fragmentManager; // La gestion des fragments
+        FragmentTransaction fragmentTransaction; // L'aide pour la transition entre les fragments
         fragmentManager = getSupportFragmentManager();
         // Commencer la discussion
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -102,6 +88,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+//    Gestion du clic dans le menu
     @Override
     public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull
                                                     MenuItem item) {
@@ -140,6 +127,16 @@ public class MainActivity extends AppCompatActivity
 
         drawer_layout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    // Gestion du bouton back
+    @Override
+    public void onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     /** Méthodes du cycles de vies **/
